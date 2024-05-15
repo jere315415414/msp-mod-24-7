@@ -1,4 +1,9 @@
-import requests, os, base64, schedule, time, pyautogui
+import requests
+import os
+import base64
+import schedule # type: ignore
+import time
+import pyautogui # type: ignore
 
 def press_space():
     pyautogui.press("space")
@@ -37,4 +42,10 @@ def main():
         time.sleep(1)
 
 if __name__ == "__main__":
+    # Verificar y configurar DISPLAY
+    if "DISPLAY" not in os.environ:
+        os.environ["DISPLAY"] = ":99"
     main()
+
+
+
