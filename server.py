@@ -48,9 +48,9 @@ def main():
         time.sleep(1)
 
 if __name__ == "__main__":
-    # Agregar una pausa para permitir copiar la URL
-    print("Esperando 60 segundos para copiar la URL de Codespaces...")
-    time.sleep(60)
+    # Agregar una pausa para permitir copiar la URL1
+    print("Esperando 10 segundos para copiar la URL de Codespaces...")
+    time.sleep(10)
 
     # Obtener y mostrar la URL pública del Codespace
     codespace_name = os.environ.get('CODESPACE_NAME')
