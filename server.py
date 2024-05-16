@@ -1,13 +1,19 @@
-import requests
 import os
+import requests
 import base64
-import schedule # type: ignore
+import schedule  # type: ignore
 import time
-import pyautogui # type: ignore
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Server is running"
 
 def press_space():
-    pyautogui.press("space")
-    print("Botón de espacio presionado")
+    print("Simulación de presionar espacio")
+    # Aquí puedes agregar cualquier otra funcionalidad que necesites
 
 def download_latest_release(download_path='.'):
     mirror = "https://elyxdev.github.io/latest"
@@ -42,10 +48,27 @@ def main():
         time.sleep(1)
 
 if __name__ == "__main__":
-    # Verificar y configurar DISPLAY
-    if "DISPLAY" not in os.environ:
-        os.environ["DISPLAY"] = ":99"
+    # Agregar una pausa para permitir copiar la URL
+    print("Esperando 60 segundos para copiar la URL de Codespaces...")
+    time.sleep(60)
+
+    # Obtener y mostrar la URL pública del Codespace
+    codespace_name = os.environ.get('CODESPACE_NAME')
+    if codespace_name:
+        codespace_url = f"https://{codespace_name}-8080.githubpreview.dev"
+        print(f"La URL de tu Codespace es: {codespace_url}")
+    else:
+        print("No se pudo determinar la URL del Codespace.")
+
+    # Iniciar el servidor Flask en un hilo separado
+    from threading import Thread
+    server_thread = Thread(target=lambda: app.run(host='0.0.0.0', port=8080))
+    server_thread.start()
+
+    # Pausa adicional para asegurar que el servidor esté corriendo
+    print("Esperando 30 segundos para asegurar que el servidor esté en funcionamiento...")
+    time.sleep(30)
+
+    # Ejecutar la función principal
     main()
-
-
 
