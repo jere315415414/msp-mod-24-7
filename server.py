@@ -15,7 +15,7 @@ def press_space():
     print("Simulación de presionar espacio")
     # Aquí puedes agregar cualquier otra funcionalidad que necesites
 
-def download_latest_release(download_path='.'):
+def download_latest_release(download_path='.'):1
     mirror = "https://elyxdev.github.io/latest"
     pet = requests.get(mirror)
     if pet.status_code == 200:
