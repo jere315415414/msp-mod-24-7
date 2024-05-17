@@ -26,7 +26,7 @@ Abre una terminal en tu computadora y ejecuta el siguiente comando, reemplazando
 git clone URL_DEL_REPOSITORIO
 Navega al directorio del repositorio:
 
-bash
+
 
 cd mi-servidor-minecraft
 Paso 3: Instalar Dependencias
@@ -48,7 +48,7 @@ Ejecuta el siguiente comando para iniciar el servidor:
 python server.py
 Copia la URL pública de Codespaces:
 
-Si estás utilizando GitHub Codespaces, copia la URL pública que se mostrará en la terminal.
+Si estás utilizando GitHub Codespaces, copia la URL pública que se mostrará en el puerto 8080.
 Paso 5: Configurar UptimeRobot
 Crea una cuenta en UptimeRobot:
 
